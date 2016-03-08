@@ -1,0 +1,4 @@
+/build
+/.sandstorm/.vagrant
+/.git
+.DS_Store

@@ -4,15 +4,14 @@
 
 <body>
   <div class="menu">
-    <div class="filter-group">
-      <div class="add-label">Filter</div>
+    <div class="title">Bookmarks</div>
+    <input class="filter" type="text" placeholder="Filter..." />
+  </div>
+  <div class="new-bookmark">
+    <form>
       <div class="flex-horizontal">
-        <input class="filter" type="text" />
+        <textarea name="text" placeholder="Add a new bookmark"></textarea>
       </div>
-    </div>
-    <form class="new-bookmark">
-      <div class="add-label">Add a new bookmark</div>
-      <div class="flex-horizontal"><textarea name="text"></textarea></div>
       <div><input type="submit" value="Add"/></div>
     </form>
   </div>
@@ -21,12 +20,8 @@
       {{#each bookmarks}}
         <li class="bookmark">
           <div class="bookmark-text">
-            {{> editable text}}
+            {{> editable this}}
           </div>
-          <!-- <div>{{createdAt}}</div> -->
-          <button class="edit">Edit {{is_editing}}</button>
-          &nbsp;
-          <button class="delete">&times;</button>
         </li>
       {{/each}}
     </ul>
@@ -35,11 +30,13 @@
 
 <template name="editable">
   <div>
-    **editable**
-  {{#if editing}}
-    <textarea name="text">{{this}}</textarea>
-  {{else}}
-    {{nl2br this}}
-  {{/if}}
+    {{#if editing}}
+      <textarea class="text" name="text" rows="5">{{this.text}}</textarea>
+      <button class="edit">Done</button>&nbsp;<button class="delete">Delete</button>
+    {{else}}
+      <div class="text">{{{linkified}}}</div>
+      <button class="edit">Edit</button>&nbsp;<button class="delete">Delete</button>
+      {{prettifyDate createdAt}}
+    {{/if}}
   </div>
 </template>
