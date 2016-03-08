@@ -1,0 +1,64 @@
+/* CSS declarations go here */
+html, body, .menu, .content {
+  height: 100%;
+}
+body {
+  display:flex;
+  margin:0;
+}
+.menu {
+  padding: 1rem;
+}
+.menu {
+  width: 220px;
+  background-color:#eee;
+}
+.flex-horizontal {
+  display:flex;
+}
+.menu input {
+  flex:1;
+  height: 1.2rem;
+}
+.filter-group {
+  margin-bottom: 1rem;
+}
+.new-bookmark {
+  margin-bottom: 2rem;
+}
+.new-bookmark textarea {
+  flex:1;
+  border: none;
+  /*border: 1px solid #ccc;*/
+  height: 3rem;
+  margin-bottom:.5rem;
+}
+.add-label {
+  font-size:.7rem;
+  line-height:1rem;
+  font-family:Menlo, monospace;
+}
+.content {
+  flex: 1;
+}
+.bookmarks {
+  list-style-type:none;
+  margin:0;
+  padding:0;
+}
+.bookmark {
+  display:flex;
+  margin:0 0 0 0;
+  padding:1rem;
+  border-top: 1px solid #ccc;
+  border-collapse: collapse;
+  align-items:flex-start;
+  justify-content:top;
+  flex-align:top;
+}
+.bookmark-text {
+  flex:1;
+}
+.delete {
+
+}

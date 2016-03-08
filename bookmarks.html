@@ -1,0 +1,45 @@
+<head>
+  <title>bookmarks</title>
+</head>
+
+<body>
+  <div class="menu">
+    <div class="filter-group">
+      <div class="add-label">Filter</div>
+      <div class="flex-horizontal">
+        <input class="filter" type="text" />
+      </div>
+    </div>
+    <form class="new-bookmark">
+      <div class="add-label">Add a new bookmark</div>
+      <div class="flex-horizontal"><textarea name="text"></textarea></div>
+      <div><input type="submit" value="Add"/></div>
+    </form>
+  </div>
+  <div class="content">
+    <ul class="bookmarks">
+      {{#each bookmarks}}
+        <li class="bookmark">
+          <div class="bookmark-text">
+            {{> editable text}}
+          </div>
+          <!-- <div>{{createdAt}}</div> -->
+          <button class="edit">Edit {{is_editing}}</button>
+          &nbsp;
+          <button class="delete">&times;</button>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</body>
+
+<template name="editable">
+  <div>
+    **editable**
+  {{#if editing}}
+    <textarea name="text">{{this}}</textarea>
+  {{else}}
+    {{nl2br this}}
+  {{/if}}
+  </div>
+</template>
